@@ -23,10 +23,16 @@ namespace utils {
     return read_tuple<Args...>(__ss);
   }
 
+  template<typename T>
+  T __typesafe_read_type(std::istream& __in) {
+    __in.exceptions(std::ios::failbit);
+    T __t; __in >> __t;
+    return __t;
+  }
+
   template<typename ... Args>
   std::tuple<Args...> typesafe_read_tuple(std::istream& __in) {
-    __in.exceptions(std::ios::failbit);
-    return read_tuple<Args...>(__in);
+    return std::tuple<Args...>{ __typesafe_read_type<Args>(__in)... };
   }
 
   template<typename ... Args>
@@ -71,7 +77,7 @@ namespace utils {
 
 template<typename ... Args>
 std::istream& operator >> (std::istream& __in, std::tuple<Args...>& __t) {
-  __t = utils::read_tuple(__in);
+  __t = utils::read_tuple<Args...>(__in);
   return __in;
 }
 
