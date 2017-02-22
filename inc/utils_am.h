@@ -22,6 +22,8 @@ namespace utils {
       virtual void schedule(action_base* ab, tick_t ticks);
       virtual void tick();
 
+      inline tick_t ticks() const { return m_total_ticks; }
+
     protected:
       bool has_queue(tick_t at);
       queue_t* get_queue(tick_t at);
