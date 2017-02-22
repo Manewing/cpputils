@@ -1,7 +1,5 @@
 #include "utils_tuple.h"
 
-#include <iostream>
-
 #define TPSTR     "1 c 0.5"
 #define TPSTR_ERR "c 0.5 1"
 
@@ -31,7 +29,6 @@ int main(int argc, char* argv[]) {
     // TODO check the issue with setting at this level iss_2.exceptions()
     t = utils::typesafe_read_tuple<int, char, float>(iss_2);
   } catch(std::istream::failure const& f) {
-    std::cout << "error" << std::endl;
   }
 
   return 0;
