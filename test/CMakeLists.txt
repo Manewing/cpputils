@@ -21,3 +21,11 @@ add_test(TEST_AM test_am)
 target_link_libraries(test_am
   utils
 )
+
+add_executable(test_cc
+  test_cc.cpp
+)
+add_test(TEST_CC test_cc)
+target_link_libraries(test_cc
+  utils
+)

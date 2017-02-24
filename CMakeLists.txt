@@ -9,6 +9,11 @@ set(COMMON_COMPILE_OPTIONS
   $<$<CONFIG:RELEASE>:-Werror>
 )
 
+option(CC_THREAD_SAFE "Enable/Disable Threadsafe Contructor Cleanup" ON)
+if(CC_THREAD_SAFE)
+  add_definitions(-DUTILS_CC_THREAD_SAFE)
+endif(CC_THREAD_SAFE)
+
 include_directories(utils PUBLIC inc/)
 
 set(UTILS_HEADERS
@@ -21,6 +26,7 @@ set(UTILS_HEADERS
 
 set(UTILS_SRC
   src/utils_am.cpp
+  src/utils_cc.cpp
 )
 
 enable_testing()
