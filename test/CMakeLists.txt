@@ -29,3 +29,11 @@ add_test(TEST_CC test_cc)
 target_link_libraries(test_cc
   utils
 )
+
+add_executable(test_factory
+  test_factory.cpp
+)
+add_test(TEST_FACTORY test_factory)
+target_link_libraries(test_factory
+  utils
+)

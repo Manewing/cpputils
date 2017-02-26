@@ -22,6 +22,7 @@ set(UTILS_HEADERS
   inc/utils_manager.h
   inc/utils_table.h
   inc/utils_tuple.h
+  inc/utils_factory.h
 )
 
 set(UTILS_SRC
